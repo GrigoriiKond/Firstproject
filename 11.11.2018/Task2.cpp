@@ -49,8 +49,8 @@ for (int n = 1; n <= i; n++) {
     
     }
     
-    cout << "The product of digits whose parity coincides with the parity of the last: " << pr; 
+cout << "The product of digits whose parity coincides with the parity of the last: " << pr; 
     
-    return 0;
+return 0;
     
-    }
+}
