@@ -10,7 +10,7 @@ bool Z;
 unsigned int N;
 
 
-cout << "Equal of elements in the array: ";
+cout << "Amount of elements in the array: ";
 
 cin >> N;
 
@@ -47,7 +47,7 @@ int A[N];
         }
             
 
-cout << "Amount of simple elements in the array: " << sum;
+cout << "Sum of simple elements in the array: " << sum;
 
 return 0;
 
