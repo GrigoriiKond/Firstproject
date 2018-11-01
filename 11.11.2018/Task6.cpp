@@ -7,19 +7,19 @@ int main()
 {
  int n;
  cin >> n;
- int *qwa = new int[n];
+ int *zxc = new int[n];
 
  for (int i = 0; i < n; i++)
  {
   int k = 0;
-  cin >> *(qwa + i);
+  cin >> *(zxc + i);
 
-  int q = *(qwa + i);
-  for (int j = 1; j <= *(qwa + i); j++)
+  int q = *(zxc + i);
+  for (int j = 1; j <= *(zxc + i); j++)
   {
    if  ((q % j) == 0) k += 1;
   }
-  if (k >= 5) cout << *(qwa + i) << " ";
+  if (k >= 5) cout << *(zxc + i) << " ";
  }
  return 0;
 }
