@@ -48,7 +48,7 @@ struct Date
 		if (Month == 2)
 		{
 			if (vis()) {return 29;}
-			else {return 28;};
+			else {return 28;}
 		}
 		else
 		{
