@@ -140,9 +140,9 @@ struct Date
     {
         Day += a;
 
-        while (Day > dni())
+        while (Day > day())
         {
-            Day -= dni();
+            Day -= day();
             Month++;
         }
 
