@@ -1,6 +1,5 @@
 /* Для структуры Date напишите метод, находящий следующую дату-палиндром. */
 
-
 #include <iostream>
 #include <locale>
 using namespace std;
@@ -39,9 +38,9 @@ struct Date
 
     void out()
     {
-        if ((Day / 10) == 0) {cout << 0;};
+        if ((Day / 10) == 0) {cout << 0;}
         cout << Day << ".";
-        if ((Month / 10) == 0) {cout << 0;};
+        if ((Month / 10) == 0) {cout << 0;}
         cout << Month << "." << Year;
     }
 
@@ -54,7 +53,7 @@ struct Date
                 else
                 {
                     if ((Year % 4) == 0) {return true;}
-                    else {return false;};
+                    else {return false;}
                 }
             }
     }
@@ -64,7 +63,7 @@ struct Date
         if (Month == 2)
         {
             if (vis()) {return 29;}
-            else {return 28;};
+            else {return 28;}
         }
         else
         {
@@ -72,7 +71,7 @@ struct Date
             {
                 return 31;
             }
-            else {return 30;};
+            else {return 30;}
         }
     }
 
@@ -100,40 +99,41 @@ struct Date
         return p;
     } 
 
-    int &operator - (Date &B)
+    int &operator - (Date &Q)
     {
         int a = Day, b = Month, c = Year;
         int n = (kon() - kon()), p = 0;
 
-        if (Year > B.Year)
+        if (Year > Q.Year)
         {
-            while (B.Year < Year)
+            while (Q.Year < Year)
             {
-                B.Year++;
-                if (B.vis()) {p -= 366;}
-                else {p -= 365;};
+                Q.Year++;
+                if (Q.vis()) {p -= 366;}
+                else {p -= 365;}
             }
         }
         else
         {
-            while (Year < B.Year)
+            while (Year < Q.Year)
             {
                 Year++;
                 if (vis()) {p += 366;}
-                else {p += 365;};
+                else {p += 365;}
             }
         }
 
-        B.Day = 0;
-        B.Day += n;
-        B.Day += p;
-        if (B.Day < 0) {B.Day = (-B.Day);};
+        Q.Day = 0;
+        Q.Day += n;
+        Q.Day += p;
+        if (Q.Day < 0) {Q.Day = (-Q.Day);}
+	    
 
         Day = a;
         Month = b;
         Year = c;
 
-        return (B.Day);
+        return (Q.Day);
     }
 
     Date &operator + (int a)
@@ -207,8 +207,8 @@ int main()
     cout << "Palindrom: ";
     D.pal();
     D.out();
-	
-	return 0;
+
+return 0;
 } 
 
 
