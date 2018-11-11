@@ -76,45 +76,9 @@ struct Date
         }
     }
 
-    int me ()
-    {
-        if ((Month == 1) || (Month == 10)) {return 0;};
-        if (Month == 5) {return 1;};
-        if (Month == 8) {return 2;};
-        if ((Month == 2) || (Month == 3) || (Month == 11)) {return 3;};
-        if (Month == 6) {return 4;};
-        if ((Month == 9) || (Month == 12)) {return 5;};
-        if ((Month == 4) || (Month == 7)) {return 6;};
-    }
+    
 
-    int ye ()
-    {
-        int n = (Year / 100);
-        n -= mdn(n, 4);
-        n *= 5;
-        n -= mdn(n, 7);
-        return n;
-    }
-
-
-    int ned ()
-    {
-        int m = Day + cod_mes();
-        m -= mdn(m, 7);
-
-        int p = (Year % 100);
-        p -= mdn(p, 28);
-        p += ((Year % 100)/4);
-        p += cod_year();
-        if (((Month == 1) || (Month == 2)) && (visokos() == 1)) {p--;};
-
-        m += p;
-        m -= mdn(m, 7);
-
-        return m;
-    }
-
-    int kon()
+   int kon()
     {
         int a = Day, b = Month, c = Year;
         int p = 0;
