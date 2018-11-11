@@ -43,25 +43,73 @@ struct Date
 			}
 	}
 
-	int day()
-	{
-		if (Month == 2)
-		{
-			if (vis()) {return 29;}
-			else {return 28;};
-		}
-		else
-		{
-			if (((Month <= 7) && (((Month % 2) != 0))) || ((Month >= 8) && ((Month % 2) == 0)))
-			{
-				return 31;
-			}
-			else {return 30;}
-		}
-	}
-  };
+	
+ 
+int &operator - (Date &B)
+    {
+        int a = Day, b = Month, c = Year;
+        int n = (kon() - kon()), p = 0;
+
+        if (Year > B.Year)
+        {
+            while (B.Year < Year)
+            {
+                B.Year++;
+                if (B.vis()) {p -= 366;}
+                else {p -= 365;};
+            }
+        }
+        else
+        {
+            while (Year < B.Year)
+            {
+                Year++;
+                if (vis()) {p += 366;}
+                else {p += 365;};
+            }
+        }
+
+        B.Day = 0;
+        B.Day += n;
+        B.Day += p;
+        if (B.Day < 0) {B.Day = (-B.Day);};
+
+        Day = a;
+        Month = b;
+        Year = c;
+
+        return (B.Day);
+    }
+
+    Date &operator + (int a)
+    {
+        Day += a;
+
+        while (Day > dni())
+        {
+            Day -= dni();
+            Month++;
+        }
+
+        while (Month > 12)
+        {
+            Month -= 12;
+            Year++;
+        }
+        return *this;
+    }
+
+
+};
   
   int main () {
+   Date D;
+    cout << "1-st date: ";
+    D.in();
+   Date Second;
+    cout << "2-nd date: ";
+    Second.in();
+    cout << "Between " << (D - Second) << " days " << '\n';
   
   return 0;
   
