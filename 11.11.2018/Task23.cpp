@@ -29,8 +29,7 @@ struct Date
 		cout << Month << "." << Year;
 	}
 
-	bool vis()
-	{
+	bool vis() {
 		if ((Year % 400) == 0) {return true;}
 		else
 			{
@@ -42,26 +41,101 @@ struct Date
 				}
 			}
 	}
+	
+	int day()   {
+        if (Month == 2)
+        {
+            if (vis()) {return 29;}
+            else {return 28;};
+        }
+        else
+        {
+            if (((Month <= 7) && (((Month % 2) != 0))) || ((Month >= 8) && ((Month % 2) == 0)))
+            {
+                return 31;
+            }
+            else {return 30;};
+        }
+    }
+
+    int me ()
+    {
+        if ((Month == 1) || (Month == 10)) {return 0;};
+        if (Month == 5) {return 1;};
+        if (Month == 8) {return 2;};
+        if ((Month == 2) || (Month == 3) || (Month == 11)) {return 3;};
+        if (Month == 6) {return 4;};
+        if ((Month == 9) || (Month == 12)) {return 5;};
+        if ((Month == 4) || (Month == 7)) {return 6;};
+    }
+
+    int ye ()
+    {
+        int n = (Year / 100);
+        n -= mdn(n, 4);
+        n *= 5;
+        n -= mdn(n, 7);
+        return n;
+    }
+
+
+    int ned ()
+    {
+        int m = Day + cod_mes();
+        m -= mdn(m, 7);
+
+        int p = (Year % 100);
+        p -= mdn(p, 28);
+        p += ((Year % 100)/4);
+        p += cod_year();
+        if (((Month == 1) || (Month == 2)) && (visokos() == 1)) {p--;};
+
+        m += p;
+        m -= mdn(m, 7);
+
+        return m;
+    }
+	
+	  int kon()  {
+        int a = Day, b = Month, c = Year;
+        int p = 0;
+        while (Month < 12)
+        {
+            p += day();
+            Month++;
+        }
+        while (Day <= 31)
+        {
+            p++;
+            Day++;
+        }
+
+        Day = a;
+        Month = b;
+        Year = c;
+
+        return p;
+    } 
 
 	
  
-int &operator - (Date &B)
+int &operator - (Date &Q)
     {
         int a = Day, b = Month, c = Year;
         int n = (kon() - kon()), p = 0;
 
-        if (Year > B.Year)
+        if (Year > Q.Year)
         {
-            while (B.Year < Year)
+            while (Q.Year < Year)
             {
-                B.Year++;
-                if (B.vis()) {p -= 366;}
+                Q.Year++;
+                if (Q.vis()) {p -= 366;}
                 else {p -= 365;};
             }
         }
         else
         {
-            while (Year < B.Year)
+            while (Year < Q.Year)
             {
                 Year++;
                 if (vis()) {p += 366;}
@@ -69,25 +143,25 @@ int &operator - (Date &B)
             }
         }
 
-        B.Day = 0;
-        B.Day += n;
-        B.Day += p;
-        if (B.Day < 0) {B.Day = (-B.Day);};
+        Q.Day = 0;
+        Q.Day += n;
+        Q.Day += p;
+        if (Q.Day < 0) {Q.Day = (-Q.Day);};
 
         Day = a;
         Month = b;
         Year = c;
 
-        return (B.Day);
+        return (Q.Day);
     }
 
     Date &operator + (int a)
     {
         Day += a;
 
-        while (Day > dni())
+        while (Day > day())
         {
-            Day -= dni();
+            Day -= day();
             Month++;
         }
 
@@ -103,13 +177,13 @@ int &operator - (Date &B)
 };
   
   int main () {
-   Date D;
+   Date A;
     cout << "1-st date: ";
-    D.in();
+    A.in();
    Date Second;
     cout << "2-nd date: ";
     Second.in();
-    cout << "Between " << (D - Second) << " days " << '\n';
+    cout << "Between " << (A - Second) << " days " << '\n';
   
   return 0;
   
