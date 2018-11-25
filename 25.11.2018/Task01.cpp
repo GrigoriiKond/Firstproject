@@ -22,7 +22,7 @@ unsigned int ymax = znach / 2019;
      if (p == n) {
      
      
-     double x = (znach - (2019 * y)) % 2018;
+     double x = (znach - (2019 * y)) / 2018;
      
      
        cout << "System: " << "x = " << x << endl;
