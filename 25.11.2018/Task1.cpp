@@ -12,16 +12,9 @@ int main() {
 
 unsigned int znach = 78487894;
 
-unsigned int a = 2018;
-
-unsigned int b = 2019;
-
 unsigned int n = znach % 2018;
 
-unsigned int xmax = znach / 2018;
 unsigned int ymax = znach / 2019;
-
-//cout << a << " " << b;
 
  for (int y = 2; y <= ymax; y = y + 2) {
  
@@ -30,7 +23,7 @@ unsigned int ymax = znach / 2019;
      if (p == n) {
      
      
-     double x = (znach - (2019 * y)) / 2018;
+     double x = (znach - (2019 * y)) % 2018;
      
      
        cout << "System: " << "x = " << x << endl;
