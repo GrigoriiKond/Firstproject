@@ -5,7 +5,6 @@
 2) выражаем x через y (y может принимать только четные значения) */
 
 #include <iostream>
-#include <iomanip>
 using namespace std;
 
 int main() {
@@ -18,7 +17,7 @@ unsigned int ymax = znach / 2019;
 
  for (int y = 2; y <= ymax; y = y + 2) {
  
-     unsigned int p = (2019 * y) / 2018;
+     unsigned int p = (2019 * y) % 2018;
      
      if (p == n) {
      
