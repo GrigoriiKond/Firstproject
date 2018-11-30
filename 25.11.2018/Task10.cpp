@@ -8,25 +8,26 @@ void praim(bool B[], int N)
 int i, P;
 int a = 1;
 
-for (P=2; P<=N; P++) B[P]=true;
+for (P = 2; P <= N; P++) B[P]=true;
 
-P=2;
+P = 2;
 
-while (P*P<=N) {
+while (P * P <= N) {
 
- i=P*P;
-if (B[P])
- 
- while (i<=N) {
- B[i]=false;
- i=i+P;
+ i = P * P;
+
+ if (B[P])
+ while (i <= N) {
+ B[i] = false;
+ i += P;
  }
 
- P=P+1;
+ P++;
 }
 
-for (P=2; P<=N; P++) {
-if (B[P]== true) a = a * P;
+for (P = 2; P <= N; P++) {
+
+ if (B[P]== true) a = a * P;
 
 }
 
