@@ -12,16 +12,17 @@ for (P=2; P<=N; P++) B[P]=true;
 
 P=2;
 
-while (P*P<=N)
-{
-i=P*P;
+while (P*P<=N) {
+
+ i=P*P;
 if (B[P])
- while (i<=N)
- {
+ 
+ while (i<=N) {
  B[i]=false;
  i=i+P;
  }
-P=P+1;
+
+ P=P+1;
 }
 
 for (P=2; P<=N; P++) {
