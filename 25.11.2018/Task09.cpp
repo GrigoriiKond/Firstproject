@@ -25,9 +25,7 @@ int main() {
      A = (A - 1) / 2;
 	
 	  for (unsigned int i = 2; i <= A; i++) 
-		if (cof[i] && cof[2*i + 1])
-			cout << i << " ";
-	     cout << endl;
-		
+		if (cof[i] && cof[2*i + 1]) cout << i << " ";
+	
 		return 0;
 }
