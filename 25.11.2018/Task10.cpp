@@ -3,8 +3,8 @@
 #include <iostream>
 using namespace std;
 
-void praim(bool B[], int N)
-{
+void praim(bool B[], int N) {
+
 int i, P;
 int a = 1;
 
@@ -35,13 +35,13 @@ cout << a;
 
 }
 
-int main(){
+int main() {
  
  int N;
-
- cout << "N#_"; 
-
+ 
  cin >> N;
+
+ cout << N << "#_"; 
 
  bool *B = new bool[N];
 
