@@ -4,16 +4,26 @@
 #include <iostream>
 using namespace std;
 
-int main () {
-    long long n, a;
-    cin >> n;
-    a = n;
-    for (long long i = 2; i*i <= n; i++)
-        if (n % i == 0) {
-            while (n % i == 0) n/= i;
-            a-=a / i;
-        }
-    if (n > 1) a -=a/n;
-    cout << a;
-    return 0;   
+int gcd(int x, int y)
+{
+    while (y)
+    {
+        x %= y;
+        swap(x,y);
+    }
+    return x;
+}
+
+int main()
+{
+    int A;
+    cin >> A;
+    int eler = 1;
+    for(int i = 2; i < A; i++)
+    
+        if (gcd(i, A) == 1) eler++;
+
+    cout << eler;
+    
+    return 0;
 }
