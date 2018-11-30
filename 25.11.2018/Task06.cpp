@@ -31,10 +31,7 @@ int main()
 
         C -= 2;
         for (unsigned int i = 2; i <= C; i++)
-                if (poi[i] == 2 && (poi[i + 2] == 4 || poi[i + 2] == 2))
-                cout << i << " ";
-        
-        cout << endl;
-        
+                if (poi[i] == 2 && (poi[i + 2] == 4 || poi[i + 2] == 2)) cout << i << " ";
+       
         return 0;
 }
