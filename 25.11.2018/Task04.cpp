@@ -3,11 +3,11 @@
 
 #include <iostream>
 #include <cmath>
-
 using namespace std;
+
 int main() {
 		
-		unsigned int A, g;
+		unsigned long int A, g;
 		
 		cout << "First n:";
 		cin >> A;
@@ -24,19 +24,19 @@ int main() {
 	   bool * sot = new bool[A + 1];
 
 		sot[0] = sot[1] = false;
-		for (unsigned int i = 2; i <= A; i++)
+		for (unsigned long int i = 2; i <= A; i++)
 		{
 				sot[i] = true;
 		}
 
-		for (unsigned int i = 2; i*i <= A; i++)
+		for (unsigned long int i = 2; i*i <= A; i++)
 		{
-				if (sot[i] && i <= (unsigned int)sqrt(A))
-				for (unsigned int j = i*i; j <= A; j += i)
+				if (sot[i] && i <= (unsigned long int)sqrt(A))
+				for (unsigned long int j = i*i; j <= A; j += i)
 				sot[j] = false;
 		}
 	
-	unsigned int i = 2;
+	unsigned long int i = 2;
 	while (g > 0)
 	{
 		if(!sot[i])
