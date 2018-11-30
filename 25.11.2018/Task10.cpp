@@ -27,7 +27,7 @@ while (P * P <= N) {
 
 for (P = 2; P <= N; P++) {
 
- if (B[P]== true) a = a * P;
+ if (B[P]== true) a *= P;
 
 }
 
