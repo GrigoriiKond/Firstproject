@@ -1,8 +1,6 @@
 /* Напишите программу, находящую k-ую порядковую статистику. Программа должна работать за время O(n) в среднем. */
 
 #include <iostream>
-#include <vector>
-#include <cstdlib> 
 using namespace std;
 
 int poil(int *A, int l, int r, int k)
